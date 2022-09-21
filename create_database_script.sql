@@ -14,7 +14,6 @@ CREATE TABLE IF NOT EXISTS author
     lastname varchar(50),
     middlename varchar(50),
     firstname varchar(50),
-    publisher_ID int,
     constraint PK_author primary key (ID)
 );
 
