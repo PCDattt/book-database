@@ -28,7 +28,7 @@ def view():
             print("MySQL connection is closed")
             return rows
 
-def search(title="",publisher="",author="",pages=""):
+def search(title="",publisher="",pages="",author="",rating=""):
     try:
         conn = mysql.connector.connect(host='localhost',
                                              database='book',
@@ -43,10 +43,11 @@ def search(title="",publisher="",author="",pages=""):
 		                " FROM book JOIN book_author ON book.ID = book_author.book_ID "
 				                  " JOIN author ON book_author.author_ID = author.ID "
                                   " JOIN publisher ON book.publisher_ID = publisher.ID "
-                        " WHERE book.title LIKE '%' %s '%' OR "
+                        " WHERE book.title LIKE %s OR "
                                 "publisher.name LIKE %s OR book.pages = %s "
-                                " OR concat(author.lastname,' ', author.firstname) LIKE %s ",
-                        (title,publisher,pages,author))
+                                " OR concat(author.lastname,' ', author.firstname) LIKE %s "
+                        " OR book.rating = %s",
+                        (title,publisher,pages,author,rating))
             rows = cur.fetchall()
 
     except Error as e:
@@ -59,4 +60,9 @@ def search(title="",publisher="",author="",pages=""):
             return rows
 
 #print(view())
-#print(search(title="C++"))
+print(search(pages=969))
+
+
+
+
+
