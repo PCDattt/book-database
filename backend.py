@@ -59,8 +59,6 @@ def search(title="",publisher="",pages="",author="",rating=""):
             print("MySQL connection is closed")
             return rows
 
-#print(view())
-print(search(pages=969))
 
 
 
