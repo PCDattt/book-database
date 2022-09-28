@@ -7,7 +7,7 @@ def view():
         conn = mysql.connector.connect(host='localhost',
                                              database='book',
                                              user='root',
-                                             password='dat01237040234')
+                                             password='12345')
         if conn.is_connected():
             print("Connected to MySQL Server")
             cur = conn.cursor()
@@ -33,7 +33,7 @@ def search(title="",publisher="",pages="",author="",rating=""):
         conn = mysql.connector.connect(host='localhost',
                                              database='book',
                                              user='root',
-                                             password='dat01237040234')
+                                             password='12345')
         if conn.is_connected():
             print("Connected to MySQL Server")
             cur = conn.cursor()
@@ -51,7 +51,7 @@ def search(title="",publisher="",pages="",author="",rating=""):
             rows = cur.fetchall()
 
     except Error as e:
-        print("Error while connecting to( MySQL", e)
+        print("Error while connecting to MySQL", e)
     finally:
         if conn.is_connected():
             conn.close()
